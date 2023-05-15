@@ -67,7 +67,7 @@ export class App extends Component {
       <Wrapper>
         <Title>Phonebook</Title>
         <ContactForm onSubmit={this.addContact} />
-        <h2>Contact</h2>
+        <h2>Contacts</h2>
         <Filter filter={this.state.filter} onChange={this.onChangeFilter} />
         <ContactList
           contacts={this.showFilteredContacts()}
