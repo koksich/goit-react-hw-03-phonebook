@@ -27,8 +27,8 @@ export class App extends Component {
     }
   }
 
-  onDuplicateCheck = name => {
-    return this.state.contacts.some(contact => contact.name === name);
+  onDuplicateCheck = (name , number) => {
+    return this.state.contacts.some(contact => contact.name.toLowerCase() === name || contact.number === number);
   };
 
   addContact = event => {
@@ -44,12 +44,13 @@ export class App extends Component {
 
     // console.log(contact)
 
-    if (this.onDuplicateCheck(contact.name)) {
+    if (this.onDuplicateCheck(contact.name, contact.number)) {
       event.currentTarget.reset();
       name.focus();
       alert(`${contact.name} is already in contacts`);
       return;
     }
+
 
     this.setState(({ contacts }) => ({
       contacts: [contact, ...contacts],
